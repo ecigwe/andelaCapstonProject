@@ -1,16 +1,32 @@
+/* eslint-disable no-undef */
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
+const { pool } = require('./config');
+const table = require('./models/table');
 
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cors());
 
-//const addcontactRouter = require('./routes/contact');
+const adduserRouter = require('./routes/user');
+const addgifRouter = require('./routes/gif');
+const addArticleRouter = require('./routes/articles');
 
-//app.use('/', addcontactRouter);
+table.createEmployeeTable();
 
-app.get('/', (req, res) => {
-	res.json({ hello: 'hello' });
-});
+table.createGifTable();
+
+table.createArticlesTable();
+
+table.createGifCommentTable();
+
+table.createArticleCommentTable();
+table.disconnect();
+
+app.use('/', adduserRouter);
+app.use('/', addgifRouter);
+app.use('/', addArticleRouter);
 
 module.exports = app;

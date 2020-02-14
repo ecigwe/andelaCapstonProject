@@ -19,10 +19,15 @@
 	},
 	"homepage": "https://github.com/ecigwe/andelaCapstonProject#readme",
 	"dependencies": {
+		"body-parser": "^1.19.0",
 		"chai": "^4.2.0",
+		"cors": "^2.8.5",
+		"debug": "^4.1.1",
+		"dotenv": "^8.2.0",
 		"express": "^4.17.1",
 		"mocha": "^6.2.2",
-		"nodemon": "^1.19.4"
+		"nodemon": "^1.19.4",
+		"pg": "^7.12.1"
 	},
 	"nodemonConfig": {
 		"restartable": "rs",
